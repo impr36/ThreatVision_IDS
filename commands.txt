@@ -1,0 +1,13 @@
+cd E:\2.Work\GitHub\ThreatVision
+
+python.exe -m pip install --upgrade pip
+
+python -m venv venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\venv\Scripts\Activate.ps1
+
+
+pip install -r requirements.txt
+
+
+python train.py --train "./KDDTrain+.txt" --test "./KDDTest+.txt" --epochs 100 --seq_len 20 --feature_area 122 --bidirectional --lstm_units 256 --dropout 0.6 --batch_size 32
